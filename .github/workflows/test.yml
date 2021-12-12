@@ -70,6 +70,12 @@ jobs:
           configuration: Release
           static: 1
           libraries: filesystem program_options system
+          
+      - id: between
+        if: runner.os == 'macOS'
+        name: between
+        shell: sh
+        run: ls '/Users/runner/work/build-boost/boost/stage/x64/Release/lib/'
 
       - name: Check Boost
         uses: ./.github/actions/check-boost
