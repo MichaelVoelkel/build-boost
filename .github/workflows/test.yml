@@ -24,10 +24,11 @@ jobs:
           # GCC == MinGW-w64 on Windows.
           - {os: windows-2016, toolset: gcc}
           - {os: windows-2019, toolset: gcc}
-          # No Clang or GCC on macOS
+          # No Clang, minGW, or GCC on macOS
           - {os: macOS-latest, toolset: clang}
           - {os: macOS-latest, toolset: gcc}
-
+          - {os: macOS-latest, toolset: minGW}
+          
     runs-on: '${{ matrix.os }}'
 
     name: '${{ matrix.version }} / ${{ matrix.os }} / ${{ matrix.toolset }}'
