@@ -129,6 +129,11 @@ jobs:
           configuration: '${{ matrix.configuration }}'
           libraries: filesystem program_options system
           directory: '${{ runner.workspace }}/foo'
+          
+      - id: between
+        name: between
+        shell: sh
+        run: ls -lsatr '${{ runner.workspace }}/foo'
 
       - name: Check Boost
         uses: ./.github/actions/check-boost
