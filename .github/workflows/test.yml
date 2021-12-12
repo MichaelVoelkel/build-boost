@@ -70,9 +70,6 @@ jobs:
           configuration: Release
           static: 1
           libraries: filesystem program_options system
-          
-      - run: '${{ runner.workspace }}/boost'
-        shell: bash
 
       - name: Check Boost
         uses: ./.github/actions/check-boost
