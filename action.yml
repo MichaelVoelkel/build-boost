@@ -161,14 +161,14 @@ runs:
         "@
         
         Start-Process "$python" -ArgumentList @"
-        $bin_dir/boost-build `
-            --toolset $toolset `
-            --platform $platform `
-            --configuration $configuration `
-            --link $link `
-            --runtime-link $runtime_link `
-            -- `
-            $boost_dir `
+        $bin_dir/boost-build 
+            --toolset $toolset 
+            --platform $platform 
+            --configuration $configuration 
+            --link $link 
+            --runtime-link $runtime_link
+            -- 
+            $boost_dir 
             $libraries
         "@
 
