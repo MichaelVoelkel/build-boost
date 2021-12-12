@@ -147,7 +147,18 @@ runs:
         
         echo ">>> TRY"
         Start-Process "$python" -ArgumentList "$bin_dir/boost-download --cache $base_dir -- $version $boost_dir"
-        echo ">>> TRY2"
+        echo ">>> argument list is: "
+        echo @"
+        $bin_dir/boost-build `
+            --toolset $toolset `
+            --platform $platform `
+            --configuration $configuration `
+            --link $link `
+            --runtime-link $runtime_link `
+            -- `
+            $boost_dir `
+            $libraries
+        "@
         
         Start-Process "$python" -ArgumentList @"
         $bin_dir/boost-build `
