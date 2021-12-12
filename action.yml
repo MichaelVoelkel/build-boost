@@ -148,25 +148,9 @@ runs:
         echo ">>> TRY"
         Start-Process "$python" -ArgumentList "$bin_dir/boost-download --cache $base_dir -- $version $boost_dir"
         echo ">>> argument list is: "
-        echo join(`
-            "$bin_dir/boost-build", `
-            "--toolset $toolset ", `
-            "--platform $platform ", `
-            "--configuration $configuration ", `
-            "--link $link ", `
-            "--runtime-link $runtime_link ", `
-            "-- ", `
-            "$boost_dir $libraries")
+        echo "$bin_dir/boost-build --toolset $toolset --platform $platform --configuration $configuration --link $link --runtime-link $runtime_link -- $boost_dir $libraries"
         
-        Start-Process "$python" -ArgumentList join(`
-            "$bin_dir/boost-build", `
-            "--toolset $toolset ", `
-            "--platform $platform ", `
-            "--configuration $configuration ", `
-            "--link $link ", `
-            "--runtime-link $runtime_link ", `
-            "-- ", `
-            "$boost_dir $libraries")
+        Start-Process "$python" -ArgumentList "$bin_dir/boost-build --toolset $toolset --platform $platform --configuration $configuration --link $link --runtime-link $runtime_link -- $boost_dir $libraries"
 
         $platformdir = $platform
         if ($platformdir -eq 'auto' -and $windows_host) {
