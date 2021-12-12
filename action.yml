@@ -45,6 +45,7 @@ runs:
   steps:
     - id: install
       run: |
+        echo "Install step"
         New-Variable os -Value '${{ runner.os }}' -Option Constant
         New-Variable windows_host -Value ($os -eq 'Windows') -Option Constant
 
@@ -72,6 +73,7 @@ runs:
             $bin_dir = & $exe $args -c "import sysconfig; print(sysconfig.get_path('scripts', 'posix_user'))"
         }
 
+        echo "Hello and bin_dir is $bin_dir"
         echo "::set-output name=bin_dir::$bin_dir"
       env:
         PIP_NO_PYTHON_VERSION_WARNING: 1
