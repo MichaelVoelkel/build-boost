@@ -127,6 +127,7 @@ runs:
         $runtime_link = if ($static_runtime) {'static'} else {'shared'}
 
         cd $bin_dir
+        ls -lsatr
         & boost-download --cache $base_dir -- $version $boost_dir
         boost-build `
             --toolset $toolset `
