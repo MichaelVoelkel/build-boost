@@ -145,7 +145,7 @@ runs:
             exit 1
         }
         
-        $python "$bin_dir/boost-download" --cache $base_dir -- $version $boost_dir
+        "$python" "$bin_dir/boost-download" --cache $base_dir -- $version $boost_dir
         boost-build `
             --toolset $toolset `
             --platform $platform `
