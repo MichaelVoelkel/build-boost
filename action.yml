@@ -142,6 +142,7 @@ runs:
         }
         
         echo ">>> call boost-download with "
+        echo "$bin_dir/boost-download --cache $base_dir -- $version $boost_dir"
         Start-Process -Wait "$python" -ArgumentList "$bin_dir/boost-download --cache $base_dir -- $version $boost_dir"
         echo ">>> ls is"
         ls "$boost_dir/.."
