@@ -117,6 +117,8 @@ runs:
         $libraries = $libraries | %{"--with-$_"}
 
         $bin_dir = '${{ steps.install.outputs.bin_dir }}'
+        echo "Bin Dir is: $bin_dir"
+        ls $bin_dir
         $path_sep = [IO.Path]::PathSeparator
         $env:Path = "$bin_dir$path_sep$env:PATH"
 
