@@ -128,9 +128,10 @@ jobs:
           directory: '${{ runner.workspace }}/foo'
           
       - id: between
+        if: runner.os == 'macOS'
         name: between
         shell: sh
-        run: ls -lsatr '${{ runner.workspace }}/foo'
+        run: ls '/Users/runner/work/build-boost/boost/stage/x64/Release/lib/'
 
       - name: Check Boost
         uses: ./.github/actions/check-boost
