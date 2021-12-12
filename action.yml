@@ -159,7 +159,7 @@ runs:
             -- `
             $boost_dir `
             $libraries
-            "@
+        "@
 
         $platformdir = $platform
         if ($platformdir -eq 'auto' -and $windows_host) {
