@@ -126,7 +126,7 @@ runs:
         $link = if ($static) {'static'} else {'shared'}
         $runtime_link = if ($static_runtime) {'static'} else {'shared'}
 
-        $bin_dir/boost-download --cache $base_dir -- $version $boost_dir
+        $bin_dir\boost-download --cache $base_dir -- $version $boost_dir
         boost-build `
             --toolset $toolset `
             --platform $platform `
