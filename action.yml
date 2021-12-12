@@ -149,8 +149,8 @@ runs:
         Start-Process "$python" -ArgumentList "$bin_dir/boost-download --cache $base_dir -- $version $boost_dir"
         echo ">>> TRY2"
         
-        Start-Process "$python" -ArgumentList @"$bin_dir/boost-build
-        boost-build `
+        Start-Process "$python" -ArgumentList @"
+        $bin_dir/boost-build `
             --toolset $toolset `
             --platform $platform `
             --configuration $configuration `
@@ -158,7 +158,8 @@ runs:
             --runtime-link $runtime_link `
             -- `
             $boost_dir `
-            $libraries"@
+            $libraries
+            "@
 
         $platformdir = $platform
         if ($platformdir -eq 'auto' -and $windows_host) {
