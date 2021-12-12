@@ -129,7 +129,23 @@ runs:
         cat "$bin_dir/boost-download"
         ls /usr/local/opt/
         ls /usr/local/opt/python@3.9/bin/python3.9
-        boost-download --cache $base_dir -- $version $boost_dir
+        
+        if (Get-Command python3 -ErrorAction SilentlyContinue) {
+            $python = @('python3')
+        } elseif (Get-Command py -ErrorAction SilentlyContinue) {
+            $python = @('py', '-3')
+        } elseif (Get-Command python -ErrorAction SilentlyContinue) {
+            $python = @('python')
+        } else {
+            echo @'
+        ::error ::
+        egor-tensin/build-boost depends on a PyPI package, which requires Python 3.6 or later.
+        We couldn't find a Python installation in this environment.
+        '@
+            exit 1
+        }
+        
+        $python "$bin_dir/boost-download" --cache $base_dir -- $version $boost_dir
         boost-build `
             --toolset $toolset `
             --platform $platform `
