@@ -127,6 +127,8 @@ runs:
         $runtime_link = if ($static_runtime) {'static'} else {'shared'}
 
         cat "$bin_dir/boost-download"
+        ls /usr/local/opt/
+        ls /usr/local/opt/python@3.9/bin/python3.9
         boost-download --cache $base_dir -- $version $boost_dir
         boost-build `
             --toolset $toolset `
